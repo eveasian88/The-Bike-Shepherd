@@ -1,34 +1,29 @@
 {
-  "name": "groupproject2",
+  "name": "node-handlebars-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "Project 2 Starter",
   "main": "server.js",
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "dotenv": "^6.2.0",
-    "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
-    "morgan": "^1.9.1",
-    "mysql": "^2.16.0",
-    "nodemon": "^1.18.9",
-    "sequelize": "^4.42.0"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "lint": "eslint **/*.js --quiet",
+    "fix": "eslint --fix .",
+    "test": "npm run lint && NODE_ENV=test mocha -u tdd --reporter spec --exit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eveasian88/groupProject2.git"
-  },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/eveasian88/groupProject2/issues"
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql2": "^1.6.4",
+    "sequelize": "^4.41.2"
   },
-  "homepage": "https://github.com/eveasian88/groupProject2#readme"
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "mocha": "^5.2.0",
+    "prettier": "^1.13.7"
+  }
 }
