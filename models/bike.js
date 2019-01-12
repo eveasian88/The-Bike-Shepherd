@@ -1,6 +1,7 @@
 "use strict";
 module.exports = function(sequelize, DataTypes) {
-  var bike = sequelize.define("bike",
+  var bike = sequelize.define(
+    "bike",
     {
       name: DataTypes.STRING,
       serialNumber: DataTypes.STRING,
