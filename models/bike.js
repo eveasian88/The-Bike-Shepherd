@@ -1,5 +1,5 @@
 "use strict";
-module.exports = function(sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
   var bike = sequelize.define(
     "bike",
     {
@@ -12,9 +12,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     {}
   );
-  bike.associate = function(models) {
-    models.test = "blah"; // todo: delete later
-    // associations can be defined here
-  };
+  //bike.associate = function(models) {
+  //  associations can be defined here
+  //}; // associate is unnecessary because we only have 1 db currently - Scott
   return bike;
 };
