@@ -34,7 +34,7 @@ app.set("view engine", "handlebars");
 
 
 // tell express to use routes
-app.use(routes);
+// app.use(routes);
 
 
 // sets app to listen at specified port
