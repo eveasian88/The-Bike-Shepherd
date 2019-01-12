@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: function(queryInterface, Sequelize) {
     return queryInterface.createTable("bikes", {
       id: {
         allowNull: false,
@@ -11,7 +11,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      serial_number: {
+      serialNumber: {
         type: Sequelize.STRING
       },
       model: {
@@ -23,7 +23,7 @@ module.exports = {
       brand: {
         type: Sequelize.STRING
       },
-      purchase_price: {
+      purchasePrice: {
         type: Sequelize.DECIMAL
       },
       createdAt: {
@@ -36,7 +36,7 @@ module.exports = {
       }
     });
   },
-  down: (queryInterface, Sequelize) => {
+  down: function(queryInterface) {
     return queryInterface.dropTable("bikes");
   }
 };
