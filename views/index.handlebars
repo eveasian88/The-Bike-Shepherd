@@ -1,4 +1,4 @@
-<div id="home">
+{{!-- <div id="home">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
@@ -27,7 +27,67 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<div class="header" id="header">
+		<!--header-start-->
+		<div class="container main-section">
+			<figure class="logo animated fadeInDown delay-07s">
+				<a href="#"><img src="images/logo.png" alt=""></a>
+			</figure>
+			<h1>{{msg}}</h1>
+			<h1 class="animated fadeInDown delay-07s">Welcome to The Bike Shepherd</h1>
+			<ul class="we-create animated fadeInUp delay-1s">
+				<li>Register your bike to prevent it from being stolen. Empower yourself today.</li>
+			</ul>
+
+			<!-- button to open the modal login form -->
+			<button onclick="document.getElementById('logIn').style.display='block'" class="link animated fadeInUp delay-1s servicelink">Register
+				Now</button>
+
+			<!-- the modal -->
+			<div id="logIn" class="modal">
+				<span onclick="document.getElementById('logIn').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+				<!-- modal content -->
+				<form class="modal-content animate" action="/action_page.php">
+					<div class="imgcontainer">
+						<img src="images/small-logo.png" alt="Avatar" class="avatar">
+					</div>
+
+					<form action="signUpPage" style="border:1px solid #ccc">
+						<div class="container">
+							<h1>Sign Up</h1>
+							<p>Please fill in the form to create an account.</p>
+							<hr>
+
+							<label for="email"><b>Email</b></label>
+							<input type="text" placeholder="Enter Email" name="email" required>
+
+							<label for="psw"><b>Password</b></label>
+							<input type="password" placeholder="Create Password" name="psw" required>
+
+							<label for="psw-repeat"><b>Confirm Password</b></label>
+							<input type="password" placeholder="Confirm Password" name="psw-repeat" required>
+
+							<label>
+								<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+							</label>
+
+							<p>By creating an account you agree to The Bike Shepherd's <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+							<div class="clearfix">
+								<button type="button" class="cancelbtn">Cancel</button>
+								<button type="submit" class="signupbtn">Sign Up</button>
+							</div>
+						</div>
+					</form>
+
+
+			</div>
+	</div>
+	<!--header-end-->
+  
+
+{{!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
+{{!-- <script src="/js/registerform.js"></script> --}}

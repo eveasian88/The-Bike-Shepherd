@@ -1,8 +1,17 @@
 //var db = require("../models");
 
+// Middleware function example
+function isAuthorized(req, res, next) {
+  // check for user object
+  // if (!req.user) {
+  //   return res.redirect("/login");
+  // }
+  next();
+}
+
 module.exports = app => {
   // Load index page
-  app.get("/", (req, res) => {
+  app.get("/", isAuthorized, (req, res) => {
     // db.Example.findAll({}).then(dbExamples => {
     //   res.render("index", {
     //     msg: "Welcome!",
