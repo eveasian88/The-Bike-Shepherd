@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="signUpPage" style="border:1px solid #ccc">
+        <div class="container">
+            <h1>Sign Up</h1>
+            <p>Please fill in the form to create an account.</p>
+            <hr>
+
+            <label for="nickname"><b>nickname</b></label>
+            <input type="text" id="nickname" placeholder="Enter nickname" name="nickname" required>
+            <label for="color"><b>color</b></label>
+            <input type="text" id="color" placeholder="Enter color" name="color" required>
+            <label for="brand"><b>brand</b></label>
+            <input type="text" id="brand" placeholder="Enter brand" name="brand" required>
+            <label for="serialNumber"><b>serialNumber</b></label>
+            <input type="text" id="serialNumber" placeholder="Enter serialNumber" name="serialNumber" required>
+            <label for="model"><b>model</b></label>
+            <input type="text" id="model" placeholder="Enter model" name="model" required>
+            
+            <label>
+                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+            </label>
+
+            <p>By creating an account you agree to The Bike Shepherd's <a href="#" style="color:dodgerblue">Terms &
+                    Privacy</a>.</p>
+
+            <div class="clearfix">
+                <button type="submit" id="signupbtn">Sign Up</button>
+            </div>
+        </div>
+    </form>
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="../public/js/bikeRegistration.js"></script>
+ 
+</html>
