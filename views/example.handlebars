@@ -1,19 +1,88 @@
-<div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Example</h5>
-          <p>
-            <strong>ID</strong>: {{example.id}}</p>
-          <p>
-          <p>
-            <strong>Text</strong>: {{example.text}}</p>
-          <p>
-            <strong>Description:</strong> {{example.description}}</p>
-            <a href="/">← Back To Home</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<section class="business-talking">
+		<!--business-talking-start-->
+		<div class="container">
+			<h2>Register Your Bike Here</h2>
+		</div>
+	</section>
+	<!--business-talking-end-->
+	<div class="container">
+		<section class="main-section register" id="register">
+
+			<div class="row">
+				<div class="col-lg-6 col-sm-7 wow fadeInLeft">
+					<div class="register-info-box address clearfix">
+            <h1>{{msg}}</h1>
+						<h3>Address:</h3>
+						<span>The Bike Shepherd<br>1995 University Avenue<br>Berkeley, California 94720</span>
+					</div>
+					<div class="register-info-box phone clearfix">
+						<h3>Phone:</h3>
+						<span>1-800-FIND-BIKE</span>
+					</div>
+					<div class="register-info-box email clearfix">
+						<h3>email:</h3>
+						<span>register@thebikeshepherd.com</span>
+					</div>
+
+					<ul class="social-link">
+						<li class="twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
+						<li class="facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+						<li class="pinterest"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+						<li class="gplus"><a href="#"><i class="fab fa-google-plus"></i></a></li>
+						<li class="dribbble"><a href="#"><i class="fab fa-dribbble"></i></a></li>
+					</ul>
+				</div>
+
+				<div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
+					<div class="form">
+						<div id="sendmessage">Thank you for registering your bike. It has been updated to our database.</div>
+						<div id="errormessage"></div>
+						<form action="" method="post" role="form" class="registerForm">
+							<div class="form-group">
+								<input type="text" name="name" class="form-control input-text" id="name" placeholder="Bike Nickname" data-rule="minlen:4"
+								 data-msg="Please enter your bike's nickname." />
+								<div class="validation"></div>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control input-text" name="serial_number" id="serial_number" placeholder="Serial Number"
+								 data-rule="serial_number" data-msg="Please enter a valid serial number." />
+								<div class="validation"></div>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control input-text" name="model" id="model" placeholder="Model" data-rule="minlen:4"
+								 data-msg="Please enter at least 4 characters for the bike model." />
+								<div class="validation"></div>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control input-text" name="color" id="color" placeholder="Color" data-rule="minlen:4"
+								 data-msg="Please enter at least 4 letters for the bike color." />
+								<div class="validation"></div>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control input-text" name="brand" id="brand" placeholder="Brand" data-rule="minlen:4"
+								 data-msg="Please enter at least 8 characters for the bike brand." />
+								<div class="validation"></div>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control input-text" name="purchase price" id="purchase price" placeholder="Purchase Price: $"
+								 data-rule="minlen:4" data-msg="Please enter at least 2 digits for the bike purchase price." />
+								<div class="validation"></div>
+							</div>
+			
+							<div class="text-center"><button type="submit" class="input-btn">Register Now</button></div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+       <a href="/">← Back To Home Page</a>
+       
+		</section>
+	</div>
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-logo"><a href="#"><img src="images/footer-logo.png" alt=""></a></div>
+			<span class="copyright">&copy; 2019 The Bike Shepherd. All Rights Reserved.</span>
+
+		</div>
+	</footer>

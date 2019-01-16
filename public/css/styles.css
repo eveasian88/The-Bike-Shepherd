@@ -1,12 +1,3 @@
-/* .list-group-item {
-  line-height: 2.5;
-} */
-
-/* TEST  */
-/* body {
-	background-color: black;
-} */
-
 /* header styles
 ---------------------------------*/
 .header{
@@ -85,128 +76,31 @@ color: #fff;
 	color:#fff !important;
 }
 
-/* modal test here */
-.modal {
-	display: none; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
-	left: 0;
-	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
-	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-	padding-top: 60px;
-  }
-  
-  /* modal content/box */
-  .modal-content {
-	background-color: #fefefe;
-	margin: 5px auto; /* 15% from the top and centered */
-	border: 1px solid #888;
-	width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* the close button */
-  .close {
-	/* position it in the top right corner outside of the modal */
-	position: absolute;
-	right: 25px;
-	top: 0; 
-	color: #fefefe;
-	font-size: 35px;
-	font-weight: bold;
-  }
-  
-  /* close button on hover */
-  .close:hover,
-  .close:focus {
-	color: #f44336;
-	cursor: pointer;
-  }
-
-  /* add zoom animation */
-  .animate {
-	-webkit-animation: animatezoom 0.6s;
-	animation: animatezoom 0.6s
-  }
-  
-  @-webkit-keyframes animatezoom {
-	from {-webkit-transform: scale(0)} 
-	to {-webkit-transform: scale(1)}
-  }
-  
-  @keyframes animatezoom {
-	from {transform: scale(0)} 
-	to {transform: scale(1)}
-  }
-
-* {box-sizing: border-box}
-
-/* full-width input fields */
-  input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
+/* log in and register modal style 
+---------------------------------*/
+.btn-default {
+	text-transform: uppercase;
+	color:#fff;
+	background:#7cc576;
+	font-family: 'Montserrat', sans-serif;
+	text-decoration: none;
 }
 
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
+a {
+    color: #7cc576;
+    text-decoration: none;
+    background-color: transparent;
 }
 
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
+.btn-info {
+    color: #fff;
+    background-color: #7cc576;
+    border-color: #7cc576;
 }
 
-/* set a style for all buttons */
-button {
-  background-color: #7cc576;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 20%;
-  opacity: 0.9;
+.btn-outline-info {
+    color: #7cc576;
+    border-color: #7cc576;
 }
 
-button:hover {
-  opacity:1;
-}
 
-/* extra styles for the cancel button */
-.cancelbtn {
-  padding: 14px 20px;
-  background-color: #f44336;
-}
-
-/* float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
-  float: left;
-  width: 50%;
-}
-
-/* add padding to container elements */
-.container {
-  padding: 16px;
-}
-
-/* clear floats */
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-/* change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
-    width: 100%;
-  }
-}
