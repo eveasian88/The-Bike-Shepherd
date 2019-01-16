@@ -1,34 +1,3 @@
-{{!-- <div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>Welcome to Bike Shepherd</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div> --}}
-
 <div class="header" id="header">
 		<!--header-start-->
 		<div class="container main-section">
@@ -41,53 +10,119 @@
 				<li>Register your bike to prevent it from being stolen. Empower yourself today.</li>
 			</ul>
 
-			<!-- button to open the modal login form -->
-			<button onclick="document.getElementById('logIn').style.display='block'" class="link animated fadeInUp delay-1s servicelink">Register
-				Now</button>
+				<!--Modal: Login / Register Form-->
+			<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog cascading-modal" role="document">
+					<!--Content-->
+					<div class="modal-content">
 
-			<!-- the modal -->
-			<div id="logIn" class="modal">
-				<span onclick="document.getElementById('logIn').style.display='none'" class="close" title="Close Modal">&times;</span>
+						<!--Modal cascading tabs-->
+						<div class="modal-c-tabs">
 
-				<!-- modal content -->
-				<form class="modal-content animate" action="/action_page.php">
-					<div class="imgcontainer">
-						<img src="images/small-logo.png" alt="Avatar" class="avatar">
-					</div>
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+										Log In</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+										Register</a>
+								</li>
+							</ul>
 
-					<form action="signUpPage" style="border:1px solid #ccc">
-						<div class="container">
-							<h1>Sign Up</h1>
-							<p>Please fill in the form to create an account.</p>
-							<hr>
+							<!-- Tab panels -->
+							<div class="tab-content">
+								<!--Panel 7-->
+								<div class="tab-pane fade in show active" id="panel7" role="tabpanel">
 
-							<label for="email"><b>Email</b></label>
-							<input type="text" placeholder="Enter Email" name="email" required>
+									<!--Body-->
+									<div class="modal-body mb-1">
+										<div class="md-form form-sm mb-5">
+											<i class="fas fa-envelope prefix"></i>
+											<input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
+											<label data-error="wrong" data-success="right" for="modalLRInput10">Your Email</label>
+										</div>
 
-							<label for="psw"><b>Password</b></label>
-							<input type="password" placeholder="Create Password" name="psw" required>
+										<div class="md-form form-sm mb-4">
+											<i class="fas fa-lock prefix"></i>
+											<input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
+											<label data-error="wrong" data-success="right" for="modalLRInput11">Your Password</label>
+										</div>
+										<div class="text-center mt-2">
+											<button class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button>
+										</div>
+									</div>
+									<!--Footer-->
+									<div class="modal-footer">
+										<div class="options text-center text-md-right mt-1">
+											<p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
+											<p>Forgot <a href="#" class="blue-text">Password?</a></p>
+										</div>
+										<button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+									</div>
 
-							<label for="psw-repeat"><b>Confirm Password</b></label>
-							<input type="password" placeholder="Confirm Password" name="psw-repeat" required>
+								</div>
+								<!--/.Panel 7-->
 
-							<label>
-								<input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-							</label>
+								<!--Panel 8-->
+								<div class="tab-pane fade" id="panel8" role="tabpanel">
 
-							<p>By creating an account you agree to The Bike Shepherd's <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+									<!--Body-->
+									<div class="modal-body">
+										<div class="md-form form-sm mb-5">
+											<i class="fas fa-envelope prefix"></i>
+											<input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+											<label data-error="wrong" data-success="right" for="modalLRInput12">Your Email</label>
+										</div>
 
-							<div class="clearfix">
-								<button type="button" class="cancelbtn">Cancel</button>
-								<button type="submit" class="signupbtn">Sign Up</button>
+										<div class="md-form form-sm mb-5">
+											<i class="fas fa-lock prefix"></i>
+											<input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+											<label data-error="wrong" data-success="right" for="modalLRInput13">Your Password</label>
+										</div>
+
+										<div class="md-form form-sm mb-4">
+											<i class="fas fa-lock prefix"></i>
+											<input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+											<label data-error="wrong" data-success="right" for="modalLRInput14">Repeat Password</label>
+										</div>
+
+										<div class="text-center form-sm mt-2">
+											<button class="btn btn-info">Sign Up <i class="fas fa-sign-in ml-1"></i></button>
+										</div>
+
+									</div>
+									<!--Footer-->
+									<div class="modal-footer">
+										<div class="options text-right">
+											<p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
+										</div>
+										<button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+								<!--/.Panel 8-->
 							</div>
+
 						</div>
-					</form>
+					</div>
+					<!--/.Content-->
+				</div>
+			</div>
+			<!--Modal: Login / Register Form-->
+
+			<div> <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">Start Here</a>
+			</div>
 
 
 			</div>
 	</div>
 	<!--header-end-->
+<<<<<<< HEAD
   
 
 {{!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
 <script src="/js/registerform.js"></script>
+=======
+  
+>>>>>>> 414f79c3cccb24a1a9ca0f6fb97504fab2174872
