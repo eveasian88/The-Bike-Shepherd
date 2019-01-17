@@ -81,13 +81,19 @@ p{
 /* log in and register modal style ---------------------------------*/
 .btn-default {
 	background:#7cc576;
-	color:#fff !important;
-	font-size:16px;
+	color: #fff;
+	border-color: #7cc576;
+	font-size:18px;
 	font-weight:400;
 	font-family: 'Montserrat', sans-serif;
 	display:inline-block;
 	border-radius:3px;
 	text-transform:uppercase;
+	display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
 }
 
 a {
@@ -314,7 +320,6 @@ color: #fff;
 	border-radius:50%;
 	box-shadow:0px 0px 0px 7px rgba(241,241,241,0.80);
 	margin:7px 7px 25px 7px;
-	
 }
 .team-leader-shadow{
 	transition:all 0.3s ease-in-out;
@@ -385,7 +390,7 @@ color: #fff;
 /* register
 ---------------------------------*/
 .main-section.register{
-	padding:90px 0 100px;
+	padding: 5px 0 100px;
 }
 
 .main-section.register{
@@ -704,7 +709,7 @@ color: #fff;
 	.form{ margin:0 30px;}
 	.copyright{ font-size:12px;}
 	.business-talking a{ padding:10px 25px; font-size:14px;}
-	.main-section.register{ padding:60px 0 70px}
+	.main-section.register{ padding:5px 0 70px}
 	.client-part-haead{ font-size:20px; line-height:30px;}
 	.link{ font-size:14px; padding:10px 25px;}
 	.logo{ width:100px;}
@@ -712,7 +717,7 @@ color: #fff;
 }
 
 @media only screen and (max-width: 479px) {
-	/****Mobile Portrait 320 ****/
+	/****mobile portrait 320 ****/
 	.register-info-box{ margin-left:0px;}
 	.header{ padding:40px;}
 	.social-link{ margin-left:0px;}

@@ -1,6 +1,7 @@
 {
   "development": {
     "username": "root",
+
     "password": "password",
     "database": "bikes",
     "host": "127.0.0.1",

@@ -1,37 +1,37 @@
 <nav class="main-nav-outer" id="test">
-		<!--main-nav-start-->
-		<div class="container">
-			<ul class="main-nav">
-				<li><a href="#register">Register</a></li>
-				<li><a href="#service">Services</a></li>
-
-				<li class="small-logo"><a href="#header"><img src="images/small-logo.png" alt=""></a></li>
-
-				<li><a href="#team">Team</a></li>
-				<li><a href="/" class="link animated fadeInUp delay-1s servicelink">Log Out</a></li>
-			</ul>
-
-			<a class="res-nav_click" href="#"><i class="fas fa-bars"></i></a>
-		</div>
-	</nav>
-	<!--main-nav-end-->
-
-<section class="business-talking">
-	<!--business-talking-start-->
+	<!--main-nav-start-->
 	<div class="container">
-		<h2>Register Your Bike Here</h2>
+		<ul class="main-nav">
+			<li><a href="/register">Register</a></li>
+			<li><a href="/services">Services</a></li>
+
+			<li class="small-logo"><a href="#"><img src="images/small-logo.png" alt=""></a></li>
+
+			<li><a href="/team">Team</a></li>
+			<li><a href="/" class="link animated fadeInUp delay-1s servicelink">Log Out</a></li>
+		</ul>
+
+		<a class="res-nav_click" href="#"><i class="fas fa-bars"></i></a>
+	</div>
+</nav>
+<!--main-nav-end-->
+
+<section class="main-section" id="service">
+	<!--main-section-start-->
+	<div class="container">
+		<h2>The Bike Shepherd</h2>
+		{{!-- <h6>Empower yourself today by registering your bike with us.</h6> --}}
 	</div>
 </section>
-<!--business-talking-end-->
+
 <div class="container">
 	<section class="main-section register" id="register">
 
 		<div class="row">
 			<div class="col-lg-6 col-sm-7 wow fadeInLeft">
 				<div class="register-info-box address clearfix">
-					<h1>{{msg}}</h1>
 					<h3>Address:</h3>
-					<span>The Bike Shepherd<br>1995 University Avenue<br>Berkeley, California 94720</span>
+					<span>1995 University Avenue<br>Berkeley, California 94720</span>
 				</div>
 				<div class="register-info-box phone clearfix">
 					<h3>Phone:</h3>
@@ -62,28 +62,23 @@
 							<div class="validation"></div>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control input-text" name="serial_number" id="serial_number" placeholder="Serial Number"
-							 data-rule="serial_number" data-msg="Please enter a valid serial number." />
-							<div class="validation"></div>
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control input-text" name="model" id="model" placeholder="Model" data-rule="minlen:4"
-							 data-msg="Please enter at least 4 characters for the bike model." />
-							<div class="validation"></div>
-						</div>
-						<div class="form-group">
 							<input type="text" class="form-control input-text" name="color" id="color" placeholder="Color" data-rule="minlen:4"
 							 data-msg="Please enter at least 4 letters for the bike color." />
 							<div class="validation"></div>
 						</div>
 						<div class="form-group">
 							<input type="text" class="form-control input-text" name="brand" id="brand" placeholder="Brand" data-rule="minlen:4"
-							 data-msg="Please enter at least 8 characters for the bike brand." />
+							 data-msg="Please enter at least 4 characters for the bike brand." />
 							<div class="validation"></div>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control input-text" name="purchase price" id="purchase price" placeholder="Purchase Price: $"
-							 data-rule="minlen:4" data-msg="Please enter at least 2 digits for the bike purchase price." />
+							<input type="text" class="form-control input-text" name="serialNumber" id="serialNumber" placeholder="Serial Number "
+							 data-rule="minlen:4" data-msg="Please enter at least 4 digits for the bike serialNumber." />
+							<div class="validation"></div>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control input-text" name="model" id="model" placeholder="Model" data-rule="minlen:4"
+							 data-msg="Please enter at least 4 characters for the bike model." />
 							<div class="validation"></div>
 						</div>
 
@@ -93,9 +88,9 @@
 			</div>
 		</div>
 
-
 	</section>
 </div>
+
 <footer class="footer">
 	<div class="container">
 		<div class="footer-logo"><a href="#"><img src="images/footer-logo.png" alt=""></a></div>
@@ -103,9 +98,3 @@
 
 	</div>
 </footer>
-
-	
-
-
-
-
