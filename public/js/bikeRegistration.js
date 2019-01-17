@@ -1,4 +1,4 @@
-//on submission we post to the server with all the relveant
+//on submission we post to the server with all the relevant
 //bike registration data
 
 $("#signupbtn").on("click", function(event) {

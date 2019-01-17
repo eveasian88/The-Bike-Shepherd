@@ -29,8 +29,8 @@ module.exports = app => {
     res.render("signup");
   });
 
-  app.get("/registration", (req, res) => {
-    res.render("registration");
+  app.get("/register", (req, res) => {
+    res.render("register");
   });
 
   app.get("/services", (req, res) => {
