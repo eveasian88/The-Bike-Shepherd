@@ -1,20 +1,19 @@
-// Sequelize (capital) references the standard library
-var Sequelize = require("sequelize");
-// sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../config/connection.js");
-
-// Creates a "Bike" model that matches up with DB
-var Bike = sequelize.define("bike", {
-  userID: Sequelize.STRING,
-  nickname: Sequelize.STRING,
-  color: Sequelize.STRING,
-  brand: Sequelize.STRING,
-  serialNumber: Sequelize.STRING,
-  model: Sequelize.STRING
-});
-
-// Syncs with DB
-Bike.sync();
-
-// Makes the Bike Model available for other files (will also create a table)
-module.exports = Bike;
+"use strict";
+module.exports = (sequelize, DataTypes) => {
+  var bike = sequelize.define(
+    "bike",
+    {
+      name: DataTypes.STRING,
+      serialNumber: DataTypes.STRING,
+      model: DataTypes.STRING,
+      color: DataTypes.STRING,
+      brand: DataTypes.STRING,
+      purchasePrice: DataTypes.DECIMAL
+    },
+    {}
+  );
+  //bike.associate = function(models) {
+  //  associations can be defined here
+  //}; // associate is unnecessary because we only have 1 db currently - Scott
+  return bike;
+};

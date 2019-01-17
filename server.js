@@ -2,9 +2,12 @@ require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
 var morgan = require("morgan");
+var passport = require("passport");
+var session = require("express-session");
+var bodyParser = require("body-parser");
+var env = require("dotenv").load();
 
 var db = require("./models");
-
 var app = express();
 var PORT = process.env.PORT || 3000;
 
