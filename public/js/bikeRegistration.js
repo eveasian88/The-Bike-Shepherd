@@ -1,61 +1,30 @@
-//on submission we post to the server with all the relveant 
+//on submission we post to the server with all the relveant
 //bike registration data
 
-$("#signupbtn").on("click",function(event){
-<<<<<<< HEAD
+$("#signupbtn").on("click", function(event) {
   event.preventDefault();
-  let userID=""; //TODO grab from local storage
-  let nickname=$("#nickname").val().trim();
-  let color=$("#color").val().trim();
-  let brand=$("#brand").val().trim();
-  let serialNumber=$("#serialNumber").val().trim();
-  let model=$("#model").val().trim();
-    console.log(nickname)
+  let userID = ""; //TODO grab from local storage
+  let nickname = $("#nickname").val().trim();
+  let color = $("#color").val().trim();
+  let brand = $("#brand").val().trim();
+  let serialNumber = $("#serialNumber").val().trim();
+  let model = $("#model").val().trim();
   //the html forms should have the "required" tag to ensure that
   //they are filled out
 
   //create a object and then post it to the server via ajex where
   //it will be sequlized into the database
-  let newBike={
-    userID:userID,
-    nickname:nickname,
-    color:color,
-    brand:brand,
-    serialNumber:serialNumber,
-    model:model,
-  }
-   $.post("api/register",newBike,function(data){
+  let newBike = {
+    userID: userID,
+    nickname: nickname,
+    color: color,
+    brand: brand,
+    serialNumber: serialNumber,
+    model: model
+  };
+  $.post("api/register", newBike, function(data) {
     //console log to verify that we posted to server sucessfully
-    console.log("Sent bike data to server \n")
-    console.log(newBike)
-   })
+    console.log("Sent bike data to server \n");
+    console.log(newBike);
+  });
 })
-=======
-    event.preventDefault();
-    let userID=""; //TODO grab from local storage
-    let nickname=$("#nickname").val().trim();
-    let color=$("#color").val().trim();
-    let brand=$("#brand").val().trim();
-    let serialNumber=$("#serialNumber").val().trim();
-    let model=$("#model").val().trim();
-      console.log(nickname)
-    //the html forms should have the "required" tag to ensure that
-    //they are filled out
-  
-    //create a object and then post it to the server via ajex where
-    //it will be sequlized into the database
-    let newBike={
-      userID:userID,
-      nickname:nickname,
-      color:color,
-      brand:brand,
-      serialNumber:serialNumber,
-      model:model,
-    }
-     $.post("api/register",newBike,function(data){
-      //console log to verify that we posted to server sucessfully
-      console.log("Sent bike data to server \n")
-      console.log(newBike)
-     })
-  })
->>>>>>> 89d31a53a3563c021794a2fb3f61e76ca7e537ac
