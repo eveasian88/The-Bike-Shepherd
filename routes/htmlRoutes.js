@@ -33,6 +33,14 @@ module.exports = app => {
     res.render("registration");
   });
 
+  app.get("/services", (req, res) => {
+    res.render("services");
+  });
+
+  app.get("/team", (req, res) => {
+    res.render("team");
+  });
+
   // Load example page and pass in an example by id
   // app.get("/example/:id", (req, res) => {
   //   db.Example.findOne({ where: { id: req.params.id } }).then(dbExample => {
