@@ -1,37 +1,17 @@
 //var db = require("../models");
 
-// Middleware function example
-function isAuthorized(req, res, next) {
-  // check for user object
-  // if (!req.user) {
-  //   return res.redirect("/login");
-  // }
-  next();
-}
-
 module.exports = app => {
-  // Load index page
-  app.get("/", isAuthorized, (req, res) => {
-    // db.Example.findAll({}).then(dbExamples => {
-    //   res.render("index", {
-    //     msg: "Welcome!",
-    //     examples: dbExamples
-    //   });
-    // });
-    res.render("index");
-  });
+  // app.get("/login", (req, res) => {
+  //   res.render("login");
+  // });
 
-  app.get("/login", (req, res) => {
-    res.render("login");
-  });
+  // app.get("/signup", (req, res) => {
+  //   res.render("signup");
+  // });
 
-  app.get("/signup", (req, res) => {
-    res.render("signup");
-  });
-
-  app.get("/register", (req, res) => {
-    res.render("register");
-  });
+  // app.get("/register", (req, res) => {
+  //   res.render("register");
+  // });
 
   app.get("/services", (req, res) => {
     res.render("services");
