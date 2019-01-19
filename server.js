@@ -134,42 +134,88 @@ if (process.env.NODE_ENV === "test") {
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(() => {
-  db.user
+  db.bike
     .bulkCreate([
       {
         username: "scott",
-        password: "1234",
-        displayName: "Scott",
-        email: "scott@email.com"
+        bikeNickname: "Silver Bullet",
+        color: "silver",
+        brand: "Upland",
+        serialNumber: "123456",
+        model: "Vulture"
       },
       {
-        username: "susye",
-        password: "abcd",
-        displayName: "Susye",
-        email: "susye@email.com"
-      },
-      {
-        username: "james",
-        password: "5678",
-        displayName: "James",
-        email: "james@email.com"
+        username: "scott",
+        bikeNickname: "Rodeit",
+        color: "gloss metallic red",
+        brand: "Haro",
+        serialNumber: "aksjdflkdsj",
+        model: "Downtown"
       },
       {
         username: "michael",
-        password: "password",
-        displayName: "Michael",
-        email: "michael@email.com"
+        bikeNickname: "Fixie",
+        color: "Barcelona",
+        brand: "6KU",
+        serialNumber: "465sfa4d",
+        model: "Fixie"
+      },
+      {
+        username: "james",
+        bikeNickname: "Janky Jumper",
+        color: "black",
+        brand: "Norco",
+        serialNumber: "jsalfkj32",
+        model: "Sight Carbon"
+      },
+      {
+        username: "susye",
+        bikeNickname: "Road Bike",
+        color: "turquoise",
+        brand: "Bianchi",
+        serialNumber: "lajksdhf23",
+        model: "Via Nirone Dama Sora"
       }
     ])
-    .then(users => {
-      console.log(users); // ... in order to get the array of user objects
-      app.listen(PORT, () => {
-        console.log(
-          "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-          PORT,
-          PORT
-        );
-      });
+    .then(bikes => {
+      console.log(bikes);
+      db.user
+        .bulkCreate([
+          {
+            username: "scott",
+            password: "1234",
+            displayName: "Scott",
+            email: "scott@email.com"
+          },
+          {
+            username: "susye",
+            password: "abcd",
+            displayName: "Susye",
+            email: "susye@email.com"
+          },
+          {
+            username: "james",
+            password: "5678",
+            displayName: "James",
+            email: "james@email.com"
+          },
+          {
+            username: "michael",
+            password: "password",
+            displayName: "Michael",
+            email: "michael@email.com"
+          }
+        ])
+        .then(users => {
+          console.log(users);
+          app.listen(PORT, () => {
+            console.log(
+              "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+              PORT,
+              PORT
+            );
+          });
+        });
     });
 });
 
