@@ -2,4 +2,16 @@
 <p>username: {{user.username}}</p>
 <p>displayName: {{user.displayName}}</p>
 <p>email: {{user.email}}</p>
+<h2>Bikes registered:</h2>
+
+ {{#each bikes}}
+	Nickname: {{bikeNickname}}<br>
+	Brand: {{brand}}<br>
+	Model: {{model}}<br>
+	Color: {{color}}<br>
+	Serial Number: {{serialNumber}}<br>
+	<hr>
+ {{/each}}
+
+
 <a href="/logout">Log Out</a>

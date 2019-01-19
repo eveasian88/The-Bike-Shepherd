@@ -115,7 +115,23 @@ app.get("/profile", require("connect-ensure-login").ensureLoggedIn(), function(
   res
 ) {
   console.log(req.user);
-  res.render("profile", { user: req.user });
+  db.bike
+    .findAll({
+      where: {
+        username: req.user.username
+      }
+    })
+    .then(bikeData => {
+      let bikeList = [];
+      bikeData.forEach(bike => {
+        // cleans up the results to parse easier
+        bikeList.push(bike.dataValues);
+      });
+
+      const profileData = { user: req.user, bikes: bikeList };
+      console.log("RENDERING PROFILE DATA:", profileData);
+      res.render("profile", profileData);
+    });
 });
 
 // Routes
@@ -258,4 +274,24 @@ function findById(id, cb) {
         cb(new Error("User does not exist"));
       }
     });
+}
+
+function findBikesByUsername(username) {
+  return new Promise((resolve, reject) => {
+    db.bike
+      .findAll({
+        where: {
+          username: username
+        }
+      })
+      .then(bikeData => {
+        let bikeList = [];
+        bikeData.forEach(bike => {
+          bikeList.push(bike.dataValues);
+        });
+        console.log("*************************");
+        console.log(bikeList);
+        return bikeList;
+      });
+  });
 }
