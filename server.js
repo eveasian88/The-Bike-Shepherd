@@ -85,7 +85,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //app.use(express.json());
-//app.use(express.static("public"));
+app.use(express.static("public"));
 
 app.get("/", function(req, res) {
   res.render("index", { user: req.user });
