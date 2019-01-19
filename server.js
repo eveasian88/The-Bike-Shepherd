@@ -275,23 +275,3 @@ function findById(id, cb) {
       }
     });
 }
-
-function findBikesByUsername(username) {
-  return new Promise((resolve, reject) => {
-    db.bike
-      .findAll({
-        where: {
-          username: username
-        }
-      })
-      .then(bikeData => {
-        let bikeList = [];
-        bikeData.forEach(bike => {
-          bikeList.push(bike.dataValues);
-        });
-        console.log("*************************");
-        console.log(bikeList);
-        return bikeList;
-      });
-  });
-}
