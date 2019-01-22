@@ -27,7 +27,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-//require("./routes/apiRoutes")(app);
+require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: true };
@@ -38,6 +38,10 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true; // I've set force sync true here to make development easier - in case we update Schema. -Scott
 }
 
+let testData = { userID:"usertest",nickname:"testname",
+  color:"testcolor",brand:"testbrand",serialNumber:"testserial",
+  model:"testmodel",stolen:true
+};
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(() => {
   app.listen(PORT, () => {
@@ -47,6 +51,13 @@ db.sequelize.sync(syncOptions).then(() => {
       PORT
     );
   });
+}).then(function(){ //testdata
+  console.log("sequlizeing test data");
+  db.bike.create(testData);
 });
+
+//populate the database with some dumby data
+
+
 
 module.exports = app;

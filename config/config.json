@@ -3,7 +3,7 @@
     "username": "root",
 
     "password": "password",
-    "database": "bikes",
+    "database": "bikesdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
