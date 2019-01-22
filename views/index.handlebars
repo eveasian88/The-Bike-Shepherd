@@ -7,7 +7,7 @@
 			<h1>{{msg}}</h1>
 			<h1 class="animated fadeInDown delay-07s">Welcome to The Bike Shepherd</h1>
 			<ul class="we-create animated fadeInUp delay-1s">
-				<li>Register your bike to prevent it from being stolen. Empower yourself today.</li>
+				<li>Register your bike to help fight theft. Empower yourself today.</li>
 			</ul>
 
 				<!--modal: login / register form-->
@@ -40,21 +40,17 @@
 									<form action="/login" method="post">
 										<div class="modal-body mb-1">
 											<div class="md-form form-sm mb-5">
-												<i class="fas fa-envelope prefix"></i>
-												<input type="text" name="username"/>
-												{{!-- <input type="text" id="username" class="form-control form-control-sm validate"> --}}
-												<label data-error="wrong" data-success="right" for="modalLRInput10">Your Username</label>
+												<label data-error="wrong" data-success="right" for="modalLRInput10">Your Username:</label>
+												<input type="text" name="username" id="modalLRInput10" class="form-control form-control-sm validate"/>
 											</div>
-
 											<div class="md-form form-sm mb-4">
+												<label data-error="wrong" data-success="right" for="modalLRInput11">Your Password:</label>
+												<input type="password" name="password" id="modalLRInput11" class="form-control form-control-sm validate"/>
 												<i class="fas fa-lock prefix"></i>
-												<input type="password" name="password"/>
-												{{!-- <input type="password" id="password" class="form-control form-control-sm validate"> --}}
-												<label data-error="wrong" data-success="right" for="modalLRInput11">Your Password</label>
 											</div>
-
 											<div class="text-center mt-2">
-												<input class="btn btn-info" type="submit" id="loginButton" value="Login"/>
+												{{!-- <input class="btn btn-info" type="submit" id="loginButton" value="Login"/> --}}
+												<button type="submit" class="btn btn-info" value="Submit">Log In </button> 
 												{{!-- <button class="btn btn-info" id="loginButton" type="submit">Log in <i class="fas fa-sign-in ml-1"></i></button> --}}
 											</div>
 										</div>
@@ -63,9 +59,9 @@
 									<div class="modal-footer">
 										<div class="options text-center text-md-right mt-1">
 											<p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
-											<p>Forgot <a href="#" class="blue-text">Password?</a></p>
+											{{!-- <p>Forgot <a href="#" class="blue-text">Password?</a></p> Commented out until we add this feature --}}
 										</div>
-										<button type="button" class="btn btn-outline-info waves-effect ml-auto" id="loginButton" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
 									</div>
 
 								</div>
@@ -75,30 +71,42 @@
 								<div class="tab-pane fade" id="panel8" role="tabpanel">
 
 									<!--body-->
-									<div class="modal-body">
-										<div class="md-form form-sm mb-5">
-											<i class="fas fa-envelope prefix"></i>
-											<input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-											<label data-error="wrong" data-success="right" for="modalLRInput12">Your Email</label>
-										</div>
+									<form action="/signup" method="post">
+										<div class="modal-body">
+											<div class="md-form form-sm mb-5">
+												<input type="text" name="displayName" id="registerName" class="form-control form-control-sm validate"/>
+												<label data-error="wrong" data-success="right" for="registerName">Your Name</label>
+											</div>
+											<div class="md-form form-sm mb-5">
+												<input type="text" name="username" id="registerUsername" class="form-control form-control-sm validate"/>
+												<label data-error="wrong" data-success="right" for="registerUsername">Username</label>
+											</div>
 
-										<div class="md-form form-sm mb-5">
-											<i class="fas fa-lock prefix"></i>
-											<input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-											<label data-error="wrong" data-success="right" for="modalLRInput13">Your Password</label>
-										</div>
+											<div class="md-form form-sm mb-5">
+												<i class="fas fa-envelope prefix"></i>
+												<input type="email" name="email" id="registerEmail" class="form-control form-control-sm validate">
+												<label data-error="wrong" data-success="right" for="registerEmail">Email</label>
+											</div>
 
-										<div class="md-form form-sm mb-4">
-											<i class="fas fa-lock prefix"></i>
-											<input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-											<label data-error="wrong" data-success="right" for="modalLRInput14">Repeat Password</label>
-										</div>
+											<div class="md-form form-sm mb-5">
+												<i class="fas fa-lock prefix"></i>
+												<input type="password" name="password" id="registerPassword" class="form-control form-control-sm validate">
+												<label data-error="wrong" data-success="right" for="registerPassword">Password</label>
+											</div>
 
-										<div class="text-center form-sm mt-2">
-											<button class="btn btn-info">Sign Up <i class="fas fa-sign-in ml-1"></i></button>
-										</div>
+											<div class="md-form form-sm mb-4">
+												<i class="fas fa-lock prefix"></i>
+												<input type="password" name="confirmPassword" id="registerConfirmPassword" class="form-control form-control-sm validate">
+												<label data-error="wrong" data-success="right" for="registerConfirmPassword">Repeat Password</label>
+											</div>
 
-									</div>
+											<div class="text-center form-sm mt-2">
+												{{!-- <button class="btn btn-info">Sign Up <i class="fas fa-sign-in ml-1"></i></button> --}}
+												<button type="submit" class="btn btn-info" value="Submit" id="signupButton">Sign Up</button> 
+											</div>
+
+										</div>
+									</form>
 									<!--footer-->
 									<div class="modal-footer">
 										<div class="options text-right">
