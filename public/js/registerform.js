@@ -1,6 +1,22 @@
 jQuery(document).ready(function($) {
   "use strict";
 
+  // $("#signupButton").click(event => {
+  //   event.preventDefault();
+  //   const name = $("#registerName").val().trim();
+  //   const username = $("#registerUsername").val().trim();
+  //   const email = $("#registerEmail").val().trim();
+  //   const password = $("#registerPassword").val().trim();
+  //   const signupData = {
+  //     "name": name,
+  //     "username": username,
+  //     "email": email,
+  //     "password": password
+  //   }
+  //   $("#modalLRForm").modal("toggle");
+  //   $.post("/signup", signupData);
+  // });
+
   /*$("#loginButton").click(event => {
     event.preventDefault();
     // alert("Logging in");

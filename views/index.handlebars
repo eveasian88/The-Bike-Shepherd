@@ -74,7 +74,7 @@
 									<form action="/signup" method="post">
 										<div class="modal-body">
 											<div class="md-form form-sm mb-5">
-												<input type="text" name="name" id="registerName" class="form-control form-control-sm validate"/>
+												<input type="text" name="displayName" id="registerName" class="form-control form-control-sm validate"/>
 												<label data-error="wrong" data-success="right" for="registerName">Your Name</label>
 											</div>
 											<div class="md-form form-sm mb-5">
@@ -84,25 +84,25 @@
 
 											<div class="md-form form-sm mb-5">
 												<i class="fas fa-envelope prefix"></i>
-												<input type="email" id="modalLRInput12" id="registerEmail" class="form-control form-control-sm validate">
+												<input type="email" name="email" id="registerEmail" class="form-control form-control-sm validate">
 												<label data-error="wrong" data-success="right" for="registerEmail">Email</label>
 											</div>
 
 											<div class="md-form form-sm mb-5">
 												<i class="fas fa-lock prefix"></i>
-												<input type="password" id="modalLRInput13" id="registerPassword" class="form-control form-control-sm validate">
+												<input type="password" name="password" id="registerPassword" class="form-control form-control-sm validate">
 												<label data-error="wrong" data-success="right" for="registerPassword">Password</label>
 											</div>
 
 											<div class="md-form form-sm mb-4">
 												<i class="fas fa-lock prefix"></i>
-												<input type="password" id="modalLRInput14" id="registerConfirmPassword" class="form-control form-control-sm validate">
+												<input type="password" name="confirmPassword" id="registerConfirmPassword" class="form-control form-control-sm validate">
 												<label data-error="wrong" data-success="right" for="registerConfirmPassword">Repeat Password</label>
 											</div>
 
 											<div class="text-center form-sm mt-2">
 												{{!-- <button class="btn btn-info">Sign Up <i class="fas fa-sign-in ml-1"></i></button> --}}
-												<button type="submit" class="btn btn-info" value="Submit" id="signUp">Sign Up</button> 
+												<button type="submit" class="btn btn-info" value="Submit" id="signupButton">Sign Up</button> 
 											</div>
 
 										</div>
