@@ -37,29 +37,35 @@
 								<div class="tab-pane fade in show active" id="panel7" role="tabpanel">
 
 									<!--body-->
-									<div class="modal-body mb-1">
-										<div class="md-form form-sm mb-5">
-											<i class="fas fa-envelope prefix"></i>
-											<input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
-											<label data-error="wrong" data-success="right" for="modalLRInput10">Your Email</label>
-										</div>
+									<form action="/login" method="post">
+										<div class="modal-body mb-1">
+											<div class="md-form form-sm mb-5">
+												<i class="fas fa-envelope prefix"></i>
+												<input type="text" name="username"/>
+												{{!-- <input type="text" id="username" class="form-control form-control-sm validate"> --}}
+												<label data-error="wrong" data-success="right" for="modalLRInput10">Your Username</label>
+											</div>
 
-										<div class="md-form form-sm mb-4">
-											<i class="fas fa-lock prefix"></i>
-											<input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
-											<label data-error="wrong" data-success="right" for="modalLRInput11">Your Password</label>
+											<div class="md-form form-sm mb-4">
+												<i class="fas fa-lock prefix"></i>
+												<input type="password" name="password"/>
+												{{!-- <input type="password" id="password" class="form-control form-control-sm validate"> --}}
+												<label data-error="wrong" data-success="right" for="modalLRInput11">Your Password</label>
+											</div>
+
+											<div class="text-center mt-2">
+												<input class="btn btn-info" type="submit" id="loginButton" value="Login"/>
+												{{!-- <button class="btn btn-info" id="loginButton" type="submit">Log in <i class="fas fa-sign-in ml-1"></i></button> --}}
+											</div>
 										</div>
-										<div class="text-center mt-2">
-											<button class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button>
-										</div>
-									</div>
+									</form>
 									<!--footer-->
 									<div class="modal-footer">
 										<div class="options text-center text-md-right mt-1">
 											<p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
 											<p>Forgot <a href="#" class="blue-text">Password?</a></p>
 										</div>
-										<button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-outline-info waves-effect ml-auto" id="loginButton" data-dismiss="modal">Close</button>
 									</div>
 
 								</div>
@@ -117,5 +123,6 @@
 
 			</div>
 	</div>
+	<script src="js/registerform.js"></script>
 	<!--header-end-->
   
