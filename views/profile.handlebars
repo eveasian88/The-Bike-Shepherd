@@ -1,57 +1,80 @@
 {{> navbar_partial }}
 
+
 <section class="main-section" id="service">
     <!--main-section-start-->
     <div class="container">
-        <h2>Your Registered Bikes</h2>
+        <h2>Profile for {{user.displayName}}</h2>
     </div>
 </section>
 
-<section class="main-section" id="service">
-    <!--main-section-start-->
-    <div class="container">
-
-        <div class="col-lg-6 col-sm-7 wow fadeInUp delay-05s">
-            <div class="profile">
-                <div id="sendmessage">Thank you for registering your bike. It has been updated to our database.</div>
-                <div id="errormessage"></div>
-                <form action="" method="post" role="form" class="registerForm">
-                    <div class="form-group">
-                        <input type="text" name="userName" class="form-control input-text" id="userName" placeholder="Your User Name"
-                            data-rule="minlen:4" data-msg="Please enter your username." />
-                        <p>username: {{user.username}}</p>
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control input-text" name="bikeNickname" id="bikeNickname"
-                            placeholder="Your Bike's Nickname" data-rule="minlen:4" data-msg="Please enter at least 4 letters for the bike bikeNickname." />
-                        <p>displayName: {{user.displayName}}</p>
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control input-text" name="email" id="email" placeholder="Email"
-                            data-rule="minlen:4" data-msg="Please enter at least 4 characters for the bike email." />
-                        <p>email: {{user.email}}</p>
-                        <div class="validation"></div>
-                    </div>
-
-                    <div class="text-center"><button type="submit" class="input-btn">Sign Up</button></div>
-
-                    {{#each bikes}}
-                    Nickname: {{bikeNickname}}<br>
-                    Brand: {{brand}}<br>
-                    Model: {{model}}<br>
-                    Color: {{color}}<br>
-                    Serial Number: {{serialNumber}}<br>
-                    <hr>
-                    {{/each}}
-
-                </form>
+<!-- {{!-- modal pop up begins here --}} -->
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Register a Bike</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <form action="/register" method="post">
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <input type="text" name="bikeNickname" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="bikeNickname">Bike Nickname</label>
+                    </div>
+                    <div class="md-form mb-5">
+                        <input type="text" name="color" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="color">Color</label>
+                    </div>
+                    <div class="md-form mb-4">
+                        <input type="text" name="brand" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="brand">Brand</label>
+                    </div>
+                    <div class="md-form mb-4">
+                        <input type="text" name="model" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="model">Model</label>
+                    </div>
+                    <div class="md-form mb-4">
+                        <input type="text" name="serialNumber" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="serialNumber">Serial Number</label>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-deep-orange" value="Submit">Register Bike</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
+
+<div class="text-center">
+    <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Register
+        a Bike</a>
+</div>
+
+<div class="text-center">
+
+{{#if bikes}}
+    <h3>Registered Bikes</h3>
+    {{#each bikes}}
+    <p>
+    Nickname: {{bikeNickname}}<br>
+    Brand: {{brand}}<br>
+    Model: {{model}}<br>
+    Color: {{color}}<br>
+    Serial Number: {{serialNumber}}<br>
+    </p><br>
+    {{/each}}
+{{/if}}
+
+
+    <button class="input-btn">Resources Here</button>
+</div>
 
 </section>
 </div>
+
 
 {{> footer_partial }}
