@@ -12,6 +12,13 @@ module.exports = app => {
   // app.get("/register", (req, res) => {
   //   res.render("register");
   // });
+  app.get("/profile", (req, res) => {
+    res.render("profile");
+  });
+
+  app.get("/register", (req, res) => {
+    res.render("register");
+  });
 
   app.get("/services", (req, res) => {
     res.render("services");
