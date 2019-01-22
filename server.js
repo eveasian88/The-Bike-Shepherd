@@ -100,7 +100,9 @@ app.post(
   "/login",
   passport.authenticate("local", { failureRedirect: "/login" }),
   function(req, res) {
-    res.redirect("/profile");
+    console.log("REDIRECTING NOW");
+    //res.redirect("/profile");
+    res.render("/profile");
   }
 );
 

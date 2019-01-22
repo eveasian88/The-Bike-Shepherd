@@ -1,9 +1,11 @@
 //on submission we post to the server with all the relevant
 //bike registration data
 
+alert("loaded");
+
 $("#signupbtn").on("click", function(event) {
   event.preventDefault();
-  let userID = ""; //TODO grab from local storage
+  let username = $("#loginUsername").val().trim();
   let nickname = $("#nickname").val().trim();
   let color = $("#color").val().trim();
   let brand = $("#brand").val().trim();
