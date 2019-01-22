@@ -3,7 +3,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 //var morgan = require("morgan");
 var passport = require("passport");
-var Strategy = require("passport-local").Strategy;
+// var Strategy = require("passport-local").Strategy;
 //var session = require("express-session");
 //var bodyParser = require("body-parser");
 //var env = require("dotenv").load();
@@ -39,7 +39,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-//app.use(express.json());
+app.use(express.json());
 app.use(express.static("public"));
 
 // Routes

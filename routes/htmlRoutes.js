@@ -52,10 +52,6 @@ module.exports = app => {
     res.render("index", { user: req.user });
   });
 
-  // app.get("/login", function(req, res) {
-  //   res.render("login");
-  // });
-
   app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
@@ -106,6 +102,15 @@ module.exports = app => {
     function(req, res) {
       console.log("REDIRECTING TO PROFILE NOW");
       res.redirect("/profile");
+    }
+  );
+
+  app.post(
+    "/signup",
+    /*passport.authenticate("local", { failureRedirect: "/" }),*/
+    function(req, res) {
+      console.log("*********** req is **********", req);
+      res.redirect("/");
     }
   );
 
