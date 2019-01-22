@@ -1,5 +1,6 @@
 {{> navbar_partial }}
 
+
 <section class="main-section" id="service">
     <!--main-section-start-->
     <div class="container">
@@ -7,51 +8,71 @@
     </div>
 </section>
 
-<section class="main-section" id="service">
-    <!--main-section-start-->
-    <div class="container">
+<!-- {{!-- modal pop up begins here --}} -->
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Register Another Bike</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input type="text" id="orangeForm-name" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="orangeForm-name">Your User Name</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="email" id="orangeForm-email" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="orangeForm-email">Your Bike's Nickname</label>
+                </div>
 
-        <div class="col-lg-6 col-sm-7 wow fadeInUp delay-05s">
-            <div class="profile">
-                <div id="sendmessage">Thank you for registering your bike. It has been updated to our database.</div>
-                <div id="errormessage"></div>
-                <form action="" method="post" role="form" class="registerForm">
-                    <div class="form-group">
-                        <input type="text" name="userName" class="form-control input-text" id="userName" placeholder="Your User Name"
-                            data-rule="minlen:4" data-msg="Please enter your username." />
-                        <p>username: {{user.username}}</p>
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control input-text" name="bikeNickname" id="bikeNickname"
-                            placeholder="Your Bike's Nickname" data-rule="minlen:4" data-msg="Please enter at least 4 letters for the bike bikeNickname." />
-                        <p>displayName: {{user.displayName}}</p>
-                        <div class="validation"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control input-text" name="email" id="email" placeholder="Email"
-                            data-rule="minlen:4" data-msg="Please enter at least 4 characters for the bike email." />
-                        <p>email: {{user.email}}</p>
-                        <div class="validation"></div>
-                    </div>
+                <div class="md-form mb-4">
+                    <i class="fas fa-lock prefix grey-text"></i>
+                    <input type="password" id="orangeForm-pass" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="orangeForm-pass">Your Email</label>
+                </div>
 
-                    <div class="text-center"><button type="submit" class="input-btn">Sign Up</button></div>
-
-                    {{#each bikes}}
-                    Nickname: {{bikeNickname}}<br>
-                    Brand: {{brand}}<br>
-                    Model: {{model}}<br>
-                    Color: {{color}}<br>
-                    Serial Number: {{serialNumber}}<br>
-                    <hr>
-                    {{/each}}
-
-                </form>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button class="btn btn-deep-orange">Register Bike</button>
             </div>
         </div>
     </div>
-
-</section>
 </div>
 
-{{> footer_partial }}
+<div class="text-center">
+    <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Register
+        Another Bike</a>
+</div>
+
+<!--Modal: Login / Register Form-->
+<div class="text-center">
+    <div> <button class="input-btn">Resources Here</button>
+    </div>
+
+
+{{!-- scott - i'm building this blindly as i can't see it in localhost so you may need to tweak it. the profile page goes directly to login --}}
+
+{{#each bikes}}
+Nickname: {{bikeNickname}}<br>
+Brand: {{brand}}<br>
+Model: {{model}}<br>
+Color: {{color}}<br>
+Serial Number: {{serialNumber}}<br>
+<hr>
+{{/each}}
+
+
+<p>username: {{user.username}}</p>
+<p>displayName: {{user.displayName}}</p>
+<p>email: {{user.email}}</p>
+
+</section>
+</div> --}}
+
+
+{{> footer_partial }} -->
