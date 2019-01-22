@@ -1,7 +1,8 @@
 jQuery(document).ready(function($) {
   "use strict";
 
-  $("#loginButton").click(() => {
+  /*$("#loginButton").click(event => {
+    event.preventDefault();
     // alert("Logging in");
     let username = $("#username")
       .val()
@@ -20,10 +21,10 @@ jQuery(document).ready(function($) {
       },
       "json"
     );
-  });
+  });*/
 
   // contact
-  $("form.registerForm").submit(function() {
+  /*$("form.registerForm").submit(function() {
     var f = $(this).find(".form-group"),
       ferror = false,
       emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
@@ -156,5 +157,5 @@ jQuery(document).ready(function($) {
       }
     });
     return false;
-  });
+  });*/
 });

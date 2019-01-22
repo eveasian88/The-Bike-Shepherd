@@ -96,16 +96,6 @@ app.get("/login", function(req, res) {
   res.render("login");
 });
 
-app.post(
-  "/login",
-  passport.authenticate("local", { failureRedirect: "/login" }),
-  function(req, res) {
-    console.log("REDIRECTING NOW");
-    //res.redirect("/profile");
-    res.render("/profile");
-  }
-);
-
 app.get("/logout", function(req, res) {
   console.log("LOG OUT INVOKED");
   req.logout();
@@ -135,6 +125,16 @@ app.get("/profile", require("connect-ensure-login").ensureLoggedIn(), function(
       res.render("profile", profileData);
     });
 });
+
+app.post(
+  "/login",
+  passport.authenticate("local", { failureRedirect: "/login" }),
+  function(req, res) {
+    console.log("REDIRECTING NOW");
+    res.redirect("/profile");
+    //res.render("/profile");
+  }
+);
 
 // Routes
 //require("./routes/apiRoutes")(app);
