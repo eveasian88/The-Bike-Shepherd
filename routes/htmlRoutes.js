@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 var db = require("../models");
 
 var passport = require("passport");
@@ -9,7 +10,7 @@ var Strategy = require("passport-local").Strategy;
 // that the password is correct and then invoke `cb` with a user object, which
 // will be set at `req.user` in route handlers after authentication.
 passport.use(
-  "local-signin",
+  "local",
   new Strategy((username, password, cb) => {
     findByUsername(username, (err, user) => {
       if (err) {
@@ -25,6 +26,23 @@ passport.use(
       console.log("LOGIN SUCCESSFUL!!!");
       return cb(null, user);
     });
+  })
+);
+
+passport.use(
+  "local-signup",
+  new Strategy((req, username, password, done) => {
+    db.user
+      .find({
+        where: {
+          username: username
+        }
+      })
+      .then(record => {
+        console.log("RECORD IS:");
+        console.log(record);
+        return cb(null, false);
+      });
   })
 );
 
@@ -87,12 +105,12 @@ passport.use(
 // typical implementation of this is as simple as supplying the user ID when
 // serializing, and querying the user record by ID from the database when
 // deserializing.
-passport.serializeUser(function(user, cb) {
+passport.serializeUser((user, cb) => {
   cb(null, user.id);
 });
 
-passport.deserializeUser(function(id, cb) {
-  findById(id, function(err, user) {
+passport.deserializeUser((id, cb) => {
+  findById(id, (err, user) => {
     if (err) {
       return cb(err);
     }
@@ -101,11 +119,11 @@ passport.deserializeUser(function(id, cb) {
 });
 
 module.exports = app => {
-  app.get("/", function(req, res) {
+  app.get("/", (req, res) => {
     res.render("index", { user: req.user });
   });
 
-  app.get("/logout", function(req, res) {
+  app.get("/logout", (req, res) => {
     req.logout();
     res.redirect("/");
   });
@@ -126,10 +144,14 @@ module.exports = app => {
     res.redirect("/"); // if you try to view profile when not logged in, it's sending to /login which no longer exists - redirecting to / which allows login instead.
   });
 
+  app.get("/signup", (req, res) => {
+    res.redirect("/"); // if timeout occurs during post and we try to get this non-existent route, reroute to /
+  });
+
   app.get(
     "/profile",
     require("connect-ensure-login").ensureLoggedIn(),
-    function(req, res) {
+    (req, res)=> {
       db.bike
         .findAll({
           where: {
@@ -151,8 +173,8 @@ module.exports = app => {
 
   app.post(
     "/login",
-    passport.authenticate("local-signin", { failureRedirect: "/" }),
-    function(req, res) {
+    passport.authenticate("local", { failureRedirect: "/" }),
+    (req, res) => {
       console.log("REDIRECTING TO PROFILE NOW");
       res.redirect("/profile");
     }
@@ -160,12 +182,10 @@ module.exports = app => {
 
   app.post(
     "/signup",
-    /*passport.authenticate("local", { failureRedirect: "/" }),*/
-    function(req, res) {
-      //console.log("*********** req is **********", req.body);
-      // todo: ensure user doesn't exist already
-
+    (req, res) => {
       db.user.findOne({ where: { username: req.body.username } }).then(user => {
+        console.log("req is");
+        console.log(req);
         const { password, confirmPassword } = req.body;
         if (user) {
           console.error("USER ALREADY EXISTS");
@@ -173,39 +193,18 @@ module.exports = app => {
         } else if (password !== confirmPassword) {
           res.send("ERROR, PASSWORDS DON'T MATCH");
         } else {
-          db.user.create(req.body).then(() => {
-            // const temp = {
-            //   body: {
-            //     "username": req.body.username,
-            //     "password": req.body.password
-            //   }
-            // };
-            console.log("ATTEMPTING TO LOG IN WITH:");
-            console.log(req);
-            req.login(req, err => {
-              if (err) {
-                //return next(err);
-                return res.send("ERROR LOGGING IN");
-              }
-              return res.redirect("/profile");
-            });
-
-            // res.redirect("/profile");
-
-            // passport.authenticate("local-signin", { failureRedirect: "/" }),
-            // (req, res) => {
-            //    console.log("REDIRECTING TO PROFILE NOW");
-            //   res.redirect("/profile");
-            // };
-            // res.redirect("/services");
+          db.user.create(req.body).then(data => {
+            passport.authenticate("local", (err, user) => {
+              req.logIn(user, errLogIn => {
+                if (errLogIn) {
+                  return next(errLogIn);
+                }
+                return res.redirect("/profile");
+              });
+            })(req, res);
           });
         }
-        // project will be the first entry of the Projects table with the title 'aProject' || null
       });
-
-      // first, add user to users db
-      // then log in user
-      // then display profile page
     }
   );
 
@@ -218,40 +217,38 @@ module.exports = app => {
 function findByUsername(username, cb) {
   // console.log("SEARCHING FOR:", username, "!!!");
   db.user
-    .findAll({
+    .find({
       where: {
         username: username
       }
     })
     .then(data => {
-      const record = data[0].dataValues;
-      // console.log("________________________");
-      // console.log(record);
-      // console.log("________________________");
-      if (username === record.username) {
-        console.log("FOUND USER:", username);
-        return cb(null, record);
-      } else {
-        console.log("USER NOT FOUND.");
-        return cb(null, null);
+      let record;
+      if (data) {
+        record = data.dataValues;
+        if (username === record.username) {
+          console.log("FOUND USER:", username);
+          return cb(null, record);
+        }
       }
+      console.log("USER NOT FOUND.");
+      return cb(null, null);
     });
 }
 
 function findById(id, cb) {
   db.user
-    .findAll({
+    .find({
       where: {
         id: id
       }
     })
     .then(data => {
-      const user = data[0].dataValues;
-      console.log(user);
-      if (user) {
-        cb(null, user);
-      } else {
-        cb(new Error("User does not exist"));
+      if (data) {
+        const user = data.dataValues;
+        console.log(user);
+        return cb(null, user);
       }
+      return cb(new Error("User does not exist"));
     });
 }
