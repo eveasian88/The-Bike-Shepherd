@@ -1,8 +1,6 @@
-/* eslint-disable prettier/prettier */
-var db = require("../models");
-
-var passport = require("passport");
-var Strategy = require("passport-local").Strategy;
+const db = require("../models");
+const passport = require("passport");
+const Strategy = require("passport-local").Strategy;
 
 // Configure the local strategy for use by Passport.
 // The local strategy require a `verify` function which receives the credentials
@@ -45,58 +43,6 @@ passport.use(
       });
   })
 );
-
-/*passport.use(
-  "signup",
-  new LocalStrategy({
-  passReqToCallback : true
-},
-(req, username, password, done) => {
-  findByUsername(username, (err, user) => {
-  //findOrCreateUser = () => {
-    // find a user in Mongo with provided username
-    User.findOne({"username":username}, (err, user) => {
-      // In case of any error return
-      if (err){
-        console.log("Error in SignUp:", err);
-        return done(err);
-      }
-      // already exists
-      if (user) {
-        console.log("User already exists");
-        return done(null, false, 
-           req.flash('message','User Already Exists'));
-      } else {
-        // // if there is no user with that email
-        // // create the user
-        // var newUser = new User();
-        // // set the user's local credentials
-        // newUser.username = username;
-        // newUser = password;
-        // //newUser.password = createHash(password);
-        // newUser.email = req.param('email');
-        // newUser.displayName = req.param('displayName');
-
-        // save the user
-        db.user.create(req.body).then(() => {
-          return done(null, newUser);
-        });
-        // newUser.save(function(err) {
-        //   if (err){
-        //     console.log('Error in Saving user: '+err);  
-        //     throw err;  
-        //   }
-        //   console.log('User Registration succesful');    
-        //   return done(null, newUser);
-        // });
-      }
-    });
-  };
-  // Delay the execution of findOrCreateUser and execute 
-  // the method in the next tick of the event loop
-  process.nextTick(findOrCreateUser);
-});
-  );*/
 
 // Configure Passport authenticated session persistence.
 //
@@ -151,7 +97,7 @@ module.exports = app => {
   app.get(
     "/profile",
     require("connect-ensure-login").ensureLoggedIn(),
-    (req, res)=> {
+    (req, res) => {
       db.bike
         .findAll({
           where: {
@@ -180,33 +126,30 @@ module.exports = app => {
     }
   );
 
-  app.post(
-    "/signup",
-    (req, res) => {
-      db.user.findOne({ where: { username: req.body.username } }).then(user => {
-        console.log("req is");
-        console.log(req);
-        const { password, confirmPassword } = req.body;
-        if (user) {
-          console.error("USER ALREADY EXISTS");
-          res.send("ERROR, this user already exists!");
-        } else if (password !== confirmPassword) {
-          res.send("ERROR, PASSWORDS DON'T MATCH");
-        } else {
-          db.user.create(req.body).then(data => {
-            passport.authenticate("local", (err, user) => {
-              req.logIn(user, errLogIn => {
-                if (errLogIn) {
-                  return next(errLogIn);
-                }
-                return res.redirect("/profile");
-              });
-            })(req, res);
-          });
-        }
-      });
-    }
-  );
+  app.post("/signup", (req, res) => {
+    db.user.findOne({ where: { username: req.body.username } }).then(user => {
+      console.log("req is");
+      console.log(req);
+      const { password, confirmPassword } = req.body;
+      if (user) {
+        console.error("USER ALREADY EXISTS");
+        res.send("ERROR, this user already exists!");
+      } else if (password !== confirmPassword) {
+        res.send("ERROR, PASSWORDS DON'T MATCH");
+      } else {
+        db.user.create(req.body).then(data => {
+          passport.authenticate("local", (err, user) => {
+            req.logIn(user, errLogIn => {
+              if (errLogIn) {
+                return next(errLogIn);
+              }
+              return res.redirect("/profile");
+            });
+          })(req, res);
+        });
+      }
+    });
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => {
@@ -215,7 +158,6 @@ module.exports = app => {
 };
 
 function findByUsername(username, cb) {
-  // console.log("SEARCHING FOR:", username, "!!!");
   db.user
     .find({
       where: {
