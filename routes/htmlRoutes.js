@@ -29,7 +29,7 @@ passport.use(
 
 passport.use(
   "local-signup",
-  new Strategy((req, username, password, done) => {
+  new Strategy((req, username) => {
     db.user
       .find({
         where: {
@@ -137,7 +137,7 @@ module.exports = app => {
       } else if (password !== confirmPassword) {
         res.send("ERROR, PASSWORDS DON'T MATCH");
       } else {
-        db.user.create(req.body).then(data => {
+        db.user.create(req.body).then(() => {
           passport.authenticate("local", (err, user) => {
             req.logIn(user, errLogIn => {
               if (errLogIn) {
