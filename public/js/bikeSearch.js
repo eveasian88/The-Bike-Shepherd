@@ -19,9 +19,5 @@ $(document).ready(function() {
     searchQuery = searchQuery.slice(0, -1);
     console.log(searchQuery);
     window.location.replace("/api/findStolen/" + searchQuery);
-    // $.get("/api/findStolen/", searchQuery, function(data) {
-    //      console.log("made request")
-    //   //once we get the data we will need to rerender the page
-    // });
   });
 });
