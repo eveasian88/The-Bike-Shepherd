@@ -1,14 +1,18 @@
 $(document).ready(function() {
+  console.log("loaded") //DELETEME
   //allows the user to search by any combination of terms
-  $("#searchbtn").on("click",function(event) {
+  $("#searchbtn").on("click", function(event) {
     event.preventDefault();
-    let terms = ["nickname","color","brand","serialNumber","model"];
+    let terms = ["color", "brand", "serialNumber", "model"];
     let searchQuery = "";
     for (let term of terms) {
-      let formValue = $(`#${term}`).val().trim() 
+      let formValue = $(`#${term}`)
+        .val()
+        .trim();
       //check that each term isn't null
-      if (! formValue == ""){
-        searchQuery += ( term + "=" + formValue + "&");
+      //changing == to === causes an error
+      if (!formValue == "") {
+        searchQuery += `${term}=${formValue}&`;
       }
     }
     //remove the last "&"
