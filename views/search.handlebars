@@ -36,37 +36,38 @@
 			</div>
 
 			<div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
+                <h2> Search </h2>
 				<div class="form">
 					<div id="sendmessage">Thank you for registering your bike. It has been updated to our database.</div>
 					<div id="errormessage"></div>
 					<form action="" method="post" role="form" class="registerForm">
 						<div class="form-group">
-							<input id="nickname" type="text" name="name" class="form-control input-text" id="name" placeholder="Bike Nickname" data-rule="minlen:4"
+							<input type="text" name="name" class="form-control input-text" id="name" placeholder="Bike Nickname" data-rule="minlen:4"
 							 data-msg="Please enter your bike's nickname." />
 							<div class="validation"></div>
 						</div>
 						<div class="form-group">
-							<input id="color" type="text" class="form-control input-text" name="color" id="color" placeholder="Color" data-rule="minlen:4"
+							<input type="text" class="form-control input-text" name="color" id="color" placeholder="Color" data-rule="minlen:4"
 							 data-msg="Please enter at least 4 letters for the bike color." />
 							<div class="validation"></div>
 						</div>
 						<div class="form-group">
-							<input id="brand" type="text" class="form-control input-text" name="brand" id="brand" placeholder="Brand" data-rule="minlen:4"
+							<input type="text" class="form-control input-text" name="brand" id="brand" placeholder="Brand" data-rule="minlen:4"
 							 data-msg="Please enter at least 4 characters for the bike brand." />
 							<div class="validation"></div>
 						</div>
 						<div class="form-group">
-							<input id="serialNumber" type="text" class="form-control input-text" name="serialNumber" id="serialNumber" placeholder="Serial Number "
+							<input type="text" class="form-control input-text" name="serialNumber" id="serialNumber" placeholder="Serial Number "
 							 data-rule="minlen:4" data-msg="Please enter at least 4 digits for the bike serialNumber." />
 							<div class="validation"></div>
 						</div>
 						<div class="form-group">
-							<input id="model" type="text" class="form-control input-text" name="model" id="model" placeholder="Model" data-rule="minlen:4"
+							<input type="text" class="form-control input-text" name="model" id="model" placeholder="Model" data-rule="minlen:4"
 							 data-msg="Please enter at least 4 characters for the bike model." />
 							<div class="validation"></div>
 						</div>
 
-						<div class="text-center"><button id="signupbtn" type="submit" class="input-btn">Register Now</button></div>
+						<div class="text-center"><button id="searchbtn" type="submit" class="input-btn">Find My Bike!</button></div>
 					</form>
 				</div>
 			</div>
@@ -74,6 +75,5 @@
 
 	</section>
 </div>
-<script src="js/bikeRegistration.js"> </script>
 
 {{> footer_partial }}

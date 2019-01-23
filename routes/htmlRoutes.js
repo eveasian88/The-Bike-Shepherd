@@ -94,6 +94,10 @@ module.exports = app => {
     res.redirect("/"); // if timeout occurs during post and we try to get this non-existent route, reroute to /
   });
 
+  app.get("/search", (req, res) => {
+    res.render("search");
+  });
+
   app.get(
     "/profile",
     require("connect-ensure-login").ensureLoggedIn(),

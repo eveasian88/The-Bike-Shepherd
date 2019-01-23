@@ -1,11 +1,9 @@
 //on submission we post to the server with all the relevant
 //bike registration data
 
-alert("loaded");
-
 $("#signupbtn").on("click", function(event) {
   event.preventDefault();
-  let username = $("#loginUsername").val().trim();
+  //let username = $("#loginUsername").val().trim();
   let nickname = $("#nickname").val().trim();
   let color = $("#color").val().trim();
   let brand = $("#brand").val().trim();
@@ -17,14 +15,14 @@ $("#signupbtn").on("click", function(event) {
   //create a object and then post it to the server via ajex where
   //it will be sequlized into the database
   let newBike = {
-    userID: userID,
+    //userID: userID,
     nickname: nickname,
     color: color,
     brand: brand,
     serialNumber: serialNumber,
     model: model
   };
-  $.post("api/register", newBike, function(data) {
+  $.post("/api/register", newBike, function(data) {
     //console log to verify that we posted to server sucessfully
     console.log("Sent bike data to server \n");
     console.log(newBike);
