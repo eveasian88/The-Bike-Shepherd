@@ -108,6 +108,10 @@ module.exports = app => {
     res.render("team");
   });
 
+  app.get("/stolen", (req, res) => {
+    res.render("stolen");
+  });
+
   app.post(
     "/login",
     passport.authenticate("local", { failureRedirect: "/" }),
