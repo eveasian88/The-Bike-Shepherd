@@ -10,9 +10,6 @@ var passport = require("passport");
 var db = require("./models");
 
 const PORT = process.env.PORT || 3000;
-const DB_PASSWORD = process.env.DB_PASS;
-console.log(DB_PASSWORD);
-
 var app = express();
 // Handlebars
 app.engine(
