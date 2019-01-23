@@ -104,7 +104,7 @@ db.sequelize.sync(syncOptions).then(() => {
       }
     ])
     .then(bikes => {
-      console.log(bikes);
+      //console.log(bikes);
       db.user
         .bulkCreate([
           {
@@ -133,7 +133,7 @@ db.sequelize.sync(syncOptions).then(() => {
           }
         ])
         .then(users => {
-          console.log(users);
+          //console.log(users);
           app.listen(PORT, () => {
             console.log(
               "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",

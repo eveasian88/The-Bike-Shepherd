@@ -1,0 +1,21 @@
+{{> navbar_partial }}
+
+<div class="text-center">
+
+    <h3>Registered Bikes</h3>
+    {{#each bikes}}
+    <p>
+    Nickname: {{bikeNickname}}<br>
+    Brand: {{brand}}<br>
+    Model: {{model}}<br>
+    Color: {{color}}<br>
+    Serial Number: {{serialNumber}}<br>
+    {{#if stolen}}
+        <span class="text-danger">STOLEN</span>
+    {{/if}}
+    </p><br>
+    {{/each}}
+
+</div>
+
+{{> navbar_partial }}

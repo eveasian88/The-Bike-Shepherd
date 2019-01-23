@@ -17,10 +17,11 @@ $(document).ready(function() {
     }
     //remove the last "&"
     searchQuery = searchQuery.slice(0, -1);
-    searchQuery = "/api/findStolen/" + searchQuery;
     console.log(searchQuery);
-    $.get("/api/findStolen/", searchQuery, function(data) {
-      //once we get the data we will need to rerender the page
-    });
+    window.location.replace("/api/findStolen/" + searchQuery);
+    // $.get("/api/findStolen/", searchQuery, function(data) {
+    //      console.log("made request")
+    //   //once we get the data we will need to rerender the page
+    // });
   });
 });
