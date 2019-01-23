@@ -42,27 +42,27 @@
 					<div id="errormessage"></div>
 					<form action="" method="post" role="form" class="registerForm">
 						<div class="form-group">
-							<input type="text" name="name" class="form-control input-text" id="name" placeholder="Bike Nickname" data-rule="minlen:4"
+							<input id="nickname" type="text" name="name" class="form-control input-text" id="name" placeholder="Bike Nickname" data-rule="minlen:4"
 							 data-msg="Please enter your bike's nickname." />
 							<div class="validation"></div>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control input-text" name="color" id="color" placeholder="Color" data-rule="minlen:4"
+							<input id="color" type="text" class="form-control input-text" name="color" id="color" placeholder="Color" data-rule="minlen:4"
 							 data-msg="Please enter at least 4 letters for the bike color." />
 							<div class="validation"></div>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control input-text" name="brand" id="brand" placeholder="Brand" data-rule="minlen:4"
+							<input id="brand" type="text" class="form-control input-text" name="brand" id="brand" placeholder="Brand" data-rule="minlen:4"
 							 data-msg="Please enter at least 4 characters for the bike brand." />
 							<div class="validation"></div>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control input-text" name="serialNumber" id="serialNumber" placeholder="Serial Number "
+							<input id="serialNumber" type="text" class="form-control input-text" name="serialNumber" id="serialNumber" placeholder="Serial Number "
 							 data-rule="minlen:4" data-msg="Please enter at least 4 digits for the bike serialNumber." />
 							<div class="validation"></div>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control input-text" name="model" id="model" placeholder="Model" data-rule="minlen:4"
+							<input id="model" type="text" class="form-control input-text" name="model" id="model" placeholder="Model" data-rule="minlen:4"
 							 data-msg="Please enter at least 4 characters for the bike model." />
 							<div class="validation"></div>
 						</div>
@@ -76,4 +76,5 @@
 	</section>
 </div>
 
+<script src="js/bikeSearch.js"> </script>
 {{> footer_partial }}

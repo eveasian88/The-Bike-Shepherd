@@ -16,7 +16,7 @@ $("#signupbtn").on("click", function(event) {
   //it will be sequlized into the database
   let newBike = {
     //userID: userID,
-    nickname: nickname,
+    bikeNickname: nickname,
     color: color,
     brand: brand,
     serialNumber: serialNumber,
