@@ -27,23 +27,6 @@ passport.use(
   })
 );
 
-// passport.use(
-//   "local-signup",
-//   new Strategy((req, username) => {
-//     db.user
-//       .find({
-//         where: {
-//           username: username
-//         }
-//       })
-//       .then(record => {
-//         console.log("RECORD IS:");
-//         console.log(record);
-//         return cb(null, false);
-//       });
-//   })
-// );
-
 // Configure Passport authenticated session persistence.
 //
 // In order to restore authentication state across HTTP requests, Passport needs
@@ -162,15 +145,6 @@ module.exports = app => {
       }
     });
   });
-
-  // Load example page and pass in an example by id
-  // app.get("/example/:id", (req, res) => {
-  //   db.Example.findOne({ where: { id: req.params.id } }).then(dbExample => {
-  //     res.render("example", {
-  //       example: dbExample
-  //     });
-  //   });
-  // });
 
   // Render 404 page for any unmatched routes
   app.get("*", (req, res) => {
