@@ -42,7 +42,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Routes
-//require("./routes/apiRoutes")(app);
+require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = {

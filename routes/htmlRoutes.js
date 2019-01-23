@@ -61,6 +61,10 @@ module.exports = app => {
     res.redirect("/");
   });
 
+  app.get("/search", (req, res) => {
+    res.render("search");
+  });
+
   app.get(
     "/profile",
     require("connect-ensure-login").ensureLoggedIn(),
