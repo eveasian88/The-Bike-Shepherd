@@ -41,9 +41,6 @@ module.exports = function(app) {
         res.render("searchResults", { bikes: bikeList });
       });
   });
-  // //DELETE THIS TEST
-  // app.get("/searchResults", function(req, res) {
-  //   res.render("searchResults",{bikes:{bikeNickName:"bike"}});
-  // });
+
 
 };
