@@ -1,4 +1,4 @@
-//require("dotenv").config();
+require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
 //var morgan = require("morgan");
@@ -6,11 +6,10 @@ var passport = require("passport");
 // var Strategy = require("passport-local").Strategy;
 //var session = require("express-session");
 //var bodyParser = require("body-parser");
-//var env = require("dotenv").load();
+// var env = require("dotenv").load();
 var db = require("./models");
 
-var PORT = process.env.PORT || 3000;
-
+const PORT = process.env.PORT || 3000;
 var app = express();
 // Handlebars
 app.engine(
@@ -104,7 +103,7 @@ db.sequelize.sync(syncOptions).then(() => {
       }
     ])
     .then(bikes => {
-      //console.log(bikes);
+
       db.user
         .bulkCreate([
           {
@@ -132,7 +131,9 @@ db.sequelize.sync(syncOptions).then(() => {
             email: "michael@email.com"
           }
         ])
-        .then(users => {
+
+        .then(() => {
+
           //console.log(users);
           app.listen(PORT, () => {
             console.log(
