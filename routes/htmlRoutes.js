@@ -27,22 +27,22 @@ passport.use(
   })
 );
 
-passport.use(
-  "local-signup",
-  new Strategy((req, username) => {
-    db.user
-      .find({
-        where: {
-          username: username
-        }
-      })
-      .then(record => {
-        console.log("RECORD IS:");
-        console.log(record);
-        return cb(null, false);
-      });
-  })
-);
+// passport.use(
+//   "local-signup",
+//   new Strategy((req, username) => {
+//     db.user
+//       .find({
+//         where: {
+//           username: username
+//         }
+//       })
+//       .then(record => {
+//         console.log("RECORD IS:");
+//         console.log(record);
+//         return cb(null, false);
+//       });
+//   })
+// );
 
 // Configure Passport authenticated session persistence.
 //
@@ -69,29 +69,13 @@ module.exports = app => {
     res.render("index", { user: req.user });
   });
 
-  app.get("/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
-  });
-
-  app.get("/register", (req, res) => {
-    res.render("register");
-  });
-
-  app.get("/services", (req, res) => {
-    res.render("services");
-  });
-
-  app.get("/team", (req, res) => {
-    res.render("team");
-  });
-
   app.get("/login", (req, res) => {
     res.redirect("/"); // if you try to view profile when not logged in, it's sending to /login which no longer exists - redirecting to / which allows login instead.
   });
 
-  app.get("/signup", (req, res) => {
-    res.redirect("/"); // if timeout occurs during post and we try to get this non-existent route, reroute to /
+  app.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/");
   });
 
   app.get(
@@ -117,6 +101,26 @@ module.exports = app => {
     }
   );
 
+  app.get("/register", (req, res) => {
+    res.redirect("/");
+  });
+
+  app.get("/resources", (req, res) => {
+    res.render("resources");
+  });
+
+  app.get("/services", (req, res) => {
+    res.render("services");
+  });
+
+  app.get("/signup", (req, res) => {
+    res.redirect("/"); // if timeout occurs during post and we try to get this non-existent route, reroute to /
+  });
+
+  app.get("/team", (req, res) => {
+    res.render("team");
+  });
+
   app.post(
     "/login",
     passport.authenticate("local", { failureRedirect: "/" }),
@@ -125,6 +129,14 @@ module.exports = app => {
       res.redirect("/profile");
     }
   );
+
+  app.post("/register", (req, res) => {
+    console.log("REGISTERING A BIKE");
+    console.log(req.body);
+    db.bike.create(req.body).then(() => {
+      res.redirect("/profile");
+    });
+  });
 
   app.post("/signup", (req, res) => {
     db.user.findOne({ where: { username: req.body.username } }).then(user => {
@@ -149,9 +161,6 @@ module.exports = app => {
         });
       }
     });
-  });
-  app.get("/resources", (req, res) => {
-    res.render("resources");
   });
 
   // Load example page and pass in an example by id
