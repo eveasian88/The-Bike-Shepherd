@@ -99,4 +99,3 @@ var handleDeleteBtnClick = () => {
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 //------------------------------------------------------------------------------------------
-

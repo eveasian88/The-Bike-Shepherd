@@ -1,6 +1,5 @@
 {{> navbar_partial }}
 
-
 <section class="main-section" id="service">
     <!--main-section-start-->
     <div class="container">
@@ -20,6 +19,9 @@
             </div>
             <form action="/register" method="post">
                 <div class="modal-body mx-3">
+                    <div hidden>
+                        <input hidden type="text" name="username" value="{{user.username}}">
+                    </div>
                     <div class="md-form mb-5">
                         <input type="text" name="bikeNickname" class="form-control validate">
                         <label data-error="wrong" data-success="right" for="bikeNickname">Bike Nickname</label>
@@ -42,7 +44,7 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <button type="submit" class="btn btn-deep-orange" value="Submit">Register Bike</button>
+                    <button type="submit" class="btn btn-deep-orange" value="Submit" id="addbike">Register Bike</button>
                 </div>
             </form>
         </div>
@@ -55,7 +57,7 @@
 </div>
 
 <div class="text-center">
-
+<div hidden id="username">{{user.username}}</div> {{!-- required to add a new bike --}}
 {{#if bikes}}
     <h3>Registered Bikes</h3>
     {{#each bikes}}
@@ -65,6 +67,13 @@
     Model: {{model}}<br>
     Color: {{color}}<br>
     Serial Number: {{serialNumber}}<br>
+    {{#if stolen}}
+        <span class="text-danger">STOLEN</span>
+    {{else}}
+        <form action="/bikestolen" method="post">
+            <button type="submit" class="btn text-danger border border-danger my-1 py-0" value="Submit" id="{{bikeNickname}}">Report Stolen</button>
+        </form>
+    {{/if}}
     </p><br>
     {{/each}}
 {{/if}}
@@ -73,8 +82,14 @@
     <button class="input-btn">Resources Here</button>
 </div>
 
-</section>
+<div class="text-center">
+    <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Register
+        Another Bike</a>
 </div>
+
+{{!-- <script src="js/bikeRegistration.js"></script> --}}
 
 
 {{> footer_partial }}
+
+

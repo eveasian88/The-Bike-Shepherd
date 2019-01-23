@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     color: DataTypes.STRING,
     brand: DataTypes.STRING,
     serialNumber: DataTypes.STRING,
-    model: DataTypes.STRING
+    model: DataTypes.STRING,
+    stolen: DataTypes.BOOLEAN
   });
   return Bike;
 };

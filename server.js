@@ -38,7 +38,6 @@ app.use(
 // session.
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -64,7 +63,8 @@ db.sequelize.sync(syncOptions).then(() => {
         color: "silver",
         brand: "Upland",
         serialNumber: "123456",
-        model: "Vulture"
+        model: "Vulture",
+        stolen: true
       },
       {
         username: "scott",
@@ -72,7 +72,8 @@ db.sequelize.sync(syncOptions).then(() => {
         color: "gloss metallic red",
         brand: "Haro",
         serialNumber: "aksjdflkdsj",
-        model: "Downtown"
+        model: "Downtown",
+        stolen: false
       },
       {
         username: "michael",
@@ -80,7 +81,8 @@ db.sequelize.sync(syncOptions).then(() => {
         color: "Barcelona",
         brand: "6KU",
         serialNumber: "465sfa4d",
-        model: "Fixie"
+        model: "Fixie",
+        stolen: false
       },
       {
         username: "james",
@@ -88,7 +90,8 @@ db.sequelize.sync(syncOptions).then(() => {
         color: "black",
         brand: "Norco",
         serialNumber: "jsalfkj32",
-        model: "Sight Carbon"
+        model: "Sight Carbon",
+        stolen: false
       },
       {
         username: "susye",
@@ -96,7 +99,8 @@ db.sequelize.sync(syncOptions).then(() => {
         color: "turquoise",
         brand: "Bianchi",
         serialNumber: "lajksdhf23",
-        model: "Via Nirone Dama Sora"
+        model: "Via Nirone Dama Sora",
+        stolen: false
       }
     ])
     .then(bikes => {
