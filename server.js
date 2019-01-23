@@ -102,31 +102,30 @@ db.sequelize.sync(syncOptions).then(() => {
         stolen: false
       }
     ])
-    .then(bikes => {
-      // console.log(bikes);
+    .then(() => {
       db.user
         .bulkCreate([
           {
             username: "scott",
-            password: "1234",
+            password: "$2a$08$6EllQYtdt3KPLYEjRC88TumPCPJkgxYBEWIsj0cK84SnbHZeLfrbS", //1234
             displayName: "Scott",
             email: "scott@email.com"
           },
           {
             username: "susye",
-            password: "abcd",
+            password: "$2a$08$3Yn8YRYFHVyrS1.hD7/lCeKnkjNS.7U979whxeCgpwvOQhOMwgjti", // abcd
             displayName: "Susye",
             email: "susye@email.com"
           },
           {
             username: "james",
-            password: "5678",
+            password: "$2a$08$ZrMJp8B./ULRGx6he0akj.myCqSU7P8jhXtygRqEzWpDHXUy.ixWC", //5678
             displayName: "James",
             email: "james@email.com"
           },
           {
             username: "michael",
-            password: "password",
+            password: "$2a$08$vPfJjT0vGG41R762QppQc.lmwWW7DFpK.tM8gAeZ2Dak.TjgviQ1G", //password
             displayName: "Michael",
             email: "michael@email.com"
           }

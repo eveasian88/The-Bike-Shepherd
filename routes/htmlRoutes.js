@@ -1,6 +1,7 @@
 const db = require("../models");
 const passport = require("passport");
 const Strategy = require("passport-local").Strategy;
+var bcrypt = require('bcryptjs');
 
 // Configure the local strategy for use by Passport.
 // The local strategy require a `verify` function which receives the credentials
@@ -17,12 +18,18 @@ passport.use(
       if (!user) {
         return cb(null, false);
       }
-      if (user.password !== password) {
-        console.log(`LOGIN for ${user.username} FAILED - INCORRECT PASSWORD`);
-        return cb(null, false);
-      }
-      console.log("LOGIN SUCCESSFUL!!!");
-      return cb(null, user);
+      // password is the one entered by the client
+      // user.password is the hashed password stored on the server
+      bcrypt.compare(password, user.password, (err, res) => {
+        if (res) {
+          // if res, passwords match
+          console.log("LOGIN SUCCESSFUL!!!");
+          return cb(null, user);
+        } else {
+          console.log(`LOGIN for ${user.username} FAILED - INCORRECT PASSWORD`);
+          return cb(null, false);
+        }
+      });
     });
   })
 );
@@ -116,6 +123,11 @@ module.exports = app => {
       res.redirect("/profile");
     }
   );
+  // app.post("/login", (req, res) => {
+  //   console.log("REQ.BODY IS:");
+  //   console.log(req.body);
+
+  // });
 
   app.post("/register", (req, res) => {
     console.log("REGISTERING A BIKE");
@@ -127,8 +139,8 @@ module.exports = app => {
 
   app.post("/signup", (req, res) => {
     db.user.findOne({ where: { username: req.body.username } }).then(user => {
-      console.log("req is");
-      console.log(req);
+      //console.log("req is");
+      //console.log(req);
       const { password, confirmPassword } = req.body;
       if (user) {
         console.error("USER ALREADY EXISTS");
@@ -136,15 +148,22 @@ module.exports = app => {
       } else if (password !== confirmPassword) {
         res.send("ERROR, PASSWORDS DON'T MATCH");
       } else {
-        db.user.create(req.body).then(() => {
-          passport.authenticate("local", (err, user) => {
-            req.logIn(user, errLogIn => {
-              if (errLogIn) {
-                return next(errLogIn);
-              }
-              return res.redirect("/profile");
-            });
-          })(req, res);
+        bcrypt.hash(req.body.password, 8, (err, hash) => {
+          req.body.password = hash;
+          // req.body.confirmPassword = hash;
+          console.log("AFTER HASHING:");
+          console.log(req.body);
+          db.user.create(req.body).then(() => {
+            req.body.password = req.body.confirmPassword; // now send the unhashed password to the login function
+            passport.authenticate("local", (err, user) => {
+              req.logIn(user, errLogIn => {
+                if (errLogIn) {
+                  return res.send(errLogIn);
+                }
+                return res.redirect("/profile");
+              });
+            })(req, res);
+          });
         });
       }
     });
