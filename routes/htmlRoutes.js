@@ -1,7 +1,7 @@
 const db = require("../models");
 const passport = require("passport");
 const Strategy = require("passport-local").Strategy;
-var bcrypt = require('bcryptjs');
+var bcrypt = require("bcryptjs");
 
 // Configure the local strategy for use by Passport.
 // The local strategy require a `verify` function which receives the credentials
@@ -119,15 +119,11 @@ module.exports = app => {
     res.render("stolen");
   });
 
-  
-
   app.post("/bikestolen/:bikeID", (req, res) => {
     id = req.params.bikeID;
-    db.bike.update({ stolen: true }, { where: { id: id } }).
-      then(() => {
-      res.redirect("/stolen");
-    });
-  });
+    db.bike.update({ stolen: true }, { where: { id: id } }).then(() => { res.redirect("/stolen");
+});
+});
 
   app.post(
     "/login",
