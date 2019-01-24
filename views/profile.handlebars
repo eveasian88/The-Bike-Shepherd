@@ -70,7 +70,7 @@
     {{#if stolen}}
         <span class="text-danger">STOLEN</span>
     {{else}}
-        <form action="/bikestolen" method="post">
+        <form action="/bikestolen/{{id}}" method="post">
             <button type="submit" class="btn text-danger border border-danger my-1 py-0" value="Submit" id="{{bikeNickname}}">Report Stolen</button>
         </form>
     {{/if}}

@@ -119,6 +119,16 @@ module.exports = app => {
     res.render("stolen");
   });
 
+  
+
+  app.post("/bikestolen/:bikeID", (req, res) => {
+    id = req.params.bikeID;
+    db.bike.update({ stolen: true }, { where: { id: id } }).
+      then(() => {
+      res.redirect("/stolen");
+    });
+  });
+
   app.post(
     "/login",
     passport.authenticate("local", { failureRedirect: "/" }),
