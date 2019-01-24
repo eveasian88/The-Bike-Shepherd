@@ -1,0 +1,26 @@
+{{> navbar_partial }}
+
+<div class="container main-section">
+    <div class="text-center">
+
+        <h3>Registered Bikes</h3>
+        {{#each bikes}}
+        <p>
+            Nickname: {{bikeNickname}}<br>
+            Brand: {{brand}}<br>
+            Model: {{model}}<br>
+            Color: {{color}}<br>
+            Serial Number: {{serialNumber}}<br>
+            {{#if stolen}}
+            <span class="text-danger">STOLEN</span>
+            {{/if}}
+        </p><br>
+        {{/each}}
+
+    </div>
+</div>
+{{> footer_partial }}
+
+<!-- this page isn't loading CSS from the main layout page, this is a dirty way of getting it to work -->
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
+<link rel="shortcut icon" href="/public/images/favicon.ico" type="img/x-icon">

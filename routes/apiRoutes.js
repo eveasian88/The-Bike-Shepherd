@@ -7,10 +7,10 @@ module.exports = function(app) {
     db.bike.create(req.body);
   });
   //find all stolen bikes
-  app.get("/api/findStolen/All", function(req, res) {
+  app.get("/api/findAll", function(req, res) {
     db.bike
       .findAll({
-        where: { stolen: true }
+        // where: { stolen: true }
       })
       .then(function(data) {
         res.json(data);
@@ -29,8 +29,18 @@ module.exports = function(app) {
       .findAll({
         where: searchObject
       })
-      .then(function(data) {
-        res.json(data);
+      .then(function(bikeData) {
+        console.log("*******************");
+        let bikeList = [];
+        bikeData.forEach(bike => {
+          // cleans up the results to parse easier
+          bikeList.push(bike.dataValues);
+        });
+        console.log(bikeList);
+        //res.render("searchResults", data);
+        res.render("searchResults", { bikes: bikeList });
       });
   });
+
+
 };

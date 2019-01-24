@@ -102,7 +102,9 @@ db.sequelize.sync(syncOptions).then(() => {
         stolen: false
       }
     ])
+
     .then(() => {
+
       db.user
         .bulkCreate([
           {
@@ -130,7 +132,9 @@ db.sequelize.sync(syncOptions).then(() => {
             email: "michael@email.com"
           }
         ])
+
         .then(() => {
+
           //console.log(users);
           app.listen(PORT, () => {
             console.log(
