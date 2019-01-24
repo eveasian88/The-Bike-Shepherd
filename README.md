@@ -1,6 +1,6 @@
-# groupProject2
+# The Bike Shepherd
 
-[The Bike Shepherd](https://bike-shepherd.herokuapp.com/) is website and mobile App that empowers bicycle owners to prevent bicycle theft and aid in the recovery of stolen bicycles. The App uses Node.js and Express Web Frameworks, Handlebars and Sequelize ORM. The App logs all bikes registered and marked stolen. It uses MySQL to query and route data to the App and Handlebars to generate the HTML. 
+[The Bike Shepherd](https://bike-shepherd.herokuapp.com/) is a website and mobile app that empowers bicycle owners to prevent bicycle theft and aid in the recovery of stolen bicycles. The App uses Node.js and Express Web Frameworks, Handlebars and Sequelize ORM. The App logs all bikes registered and marked stolen. It uses MySQL to query and route data to the App and Handlebars to generate the HTML. The website provides resources to to help you recover your stolen bike.
  
 
 
@@ -16,6 +16,8 @@
 ## Empower Yourself & Register Your Bike Today!
 
 ![bikeShepherdWebsite](public/images/bikeShepherdApp.gif "Bike Shepherd Website")
+
+
 
 
 ## Technologies Utilized
@@ -42,6 +44,8 @@
     - Mocha
     - Prettier
     - Travic CI
+- Deployment
+    - Heroku
 
 
 
@@ -52,7 +56,7 @@
 
 
 
-## License & Copyright
 
+## License & Copyright
 
 &copy; Scott Ratigan, Susye Weng-Reeder, Michael Whittemore, James Wilcox: The Bike Shepherd 2019. UC Berkeley Coding Bootcamp.
