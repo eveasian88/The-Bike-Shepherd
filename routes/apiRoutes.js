@@ -41,6 +41,4 @@ module.exports = function(app) {
         res.render("searchResults", { bikes: bikeList });
       });
   });
-
-
 };
