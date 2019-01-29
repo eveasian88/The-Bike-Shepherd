@@ -55,4 +55,4 @@
 
 ## License & Copyright
 
-&copy; Scott Ratigan, Susye Weng-Reeder, Michael Whittemore, James Wilcox: The Bike Shepherd 2019. UC Berkeley Coding Bootcamp.
+&copy; Scott Ratigan, Susye Weng-Reeder, Michael Whittemore, James Wilcox: [The Bike Shepherd 2019](https://bike-shepherd.herokuapp.com/). UC Berkeley Coding Bootcamp.
