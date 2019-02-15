@@ -4,7 +4,7 @@
 
 - If you answered, yes, then The Bike Shepherd is what you need!
 
-[The Bike Shepherd](https://bike-shepherd.herokuapp.com/) is a website and mobile app that empowers bicycle owners to prevent bicycle theft and aid in the recovery of stolen bicycles. The App uses Node.js and Express Web Frameworks, Handlebars and Sequelize ORM. The App logs all bikes registered and marked stolen. It uses MySQL to query and route data to the App and Handlebars to generate the HTML. The website provides resources to to help you recover your stolen bike.
+[The Bike Shepherd](https://bike-shepherd.herokuapp.com/) is a website and mobile app that empowers bicycle owners to prevent bicycle theft and aid in the recovery of stolen bicycles. The App uses Node.js and Express Web Frameworks, Handlebars and Sequelize ORM. The App logs all bikes registered and marked stolen. It uses MySQL to query and route data to the App and Handlebars to generate the HTML. The website provides resources to help you recover your stolen bike.
  
 
 ## Getting Started
